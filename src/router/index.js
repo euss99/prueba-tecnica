@@ -3,12 +3,18 @@ import HomeView from '../views/HomeView.vue'
 import ActorsView from '../views/ActorsView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import ContactView from '../views/ContactView.vue'
+import MovieDetail from '../components/MovieDetail.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/movie/:id',
+    name: 'movie',
+    component: MovieDetail,
   },
   {
     path: '/actors',
