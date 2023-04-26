@@ -12,6 +12,7 @@
           <option value="popularity.desc">Most popular</option>
           <option value="release_date.desc">Newest releases</option>
           <option value="original_title.asc">A-Z</option>
+          <option value="favorites">Favorites</option>
         </select>
       </div>
     </div>
@@ -25,6 +26,7 @@
   </div>
 </template>
 
+<!-- COMPOSITON API -->
 <script setup>
 import api from "@/services/api.js";
 import MovieCard from "./MovieCard.vue";
@@ -32,7 +34,7 @@ import { ref, onMounted, watch } from "vue";
 
 const movies = ref([]);
 const genres = ref([]);
-const selectedCategory = ref("popularity.desc");
+const selectedCategory = ref("popularity.desc"); // Valor por defecto de la categoría
 
 // Función para obtener los géneros
 const fetchGenres = async () => {
@@ -60,6 +62,7 @@ const fetchMovies = async () => {
 };
 
 onMounted(async () => {
+  console.log("Component is mounted");
   await fetchGenres();
   await fetchMovies();
 });

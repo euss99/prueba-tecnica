@@ -15,7 +15,18 @@
         <v-btn text class="text-white">Contact</v-btn>
       </router-link>
 
-      <p class="mr-4">{{ name }}</p>
+      <v-autocomplete
+        clearable
+        hide-no-data
+        hide-selected
+        color="white"
+        label="search"
+        prepend-inner-icon="search"
+        flat
+      >
+      </v-autocomplete>
+
+      <p class="ml-4 mr-4">{{ username }}</p>
       <v-avatar class="mr-16" size="40">
         <v-img
           src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
@@ -25,11 +36,15 @@
   </nav>
 </template>
 
-<script setup>
-import { ref } from "vue";
+<!-- COMPOSITON API -->
+<script>
+import { mapState } from "vuex";
 
-// const drawer = ref(null);
-const name = ref("John Doe");
+export default {
+  computed: {
+    ...mapState("profile", ["username"]),
+  },
+};
 </script>
 
 <style></style>

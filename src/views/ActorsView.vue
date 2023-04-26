@@ -1,5 +1,9 @@
 <template>
-  <div class="about">
-    <h1>Actors page</h1>
+  <div>
+    <ActorsSection />
   </div>
 </template>
+
+<script setup>
+import ActorsSection from "../components/ActorsSection.vue";
+</script>

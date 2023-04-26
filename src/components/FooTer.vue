@@ -29,6 +29,7 @@
   </v-footer>
 </template>
 
+<!-- COMPOSITON API -->
 <script setup>
 import { reactive } from "vue";
 
