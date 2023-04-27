@@ -12,7 +12,6 @@
           <option value="popularity.desc">Most popular</option>
           <option value="release_date.desc">Newest releases</option>
           <option value="original_title.asc">A-Z</option>
-          <option value="favorites">Favorites</option>
         </select>
       </div>
     </div>
@@ -25,13 +24,24 @@
     </v-container>
   </div>
 
-  {{ moviesFavs.title }}
+  <!-- Sección de películas favoritas -->
+  <div class="mx-10 mt-8 container-favs">
+    <h2>Favorite Movies</h2>
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12" sm="3" v-for="movie in moviesFavs" :key="movie.id">
+          <MovieCardFavs :movie="movie" :genres="genres" />
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <!-- COMPOSITON API -->
 <script setup>
 import api from "@/services/api.js";
 import MovieCard from "./MovieCard.vue";
+import MovieCardFavs from "./MovieCardFavs.vue";
 import { ref, onMounted, watch, computed } from "vue";
 import { useStore } from "vuex";
 
