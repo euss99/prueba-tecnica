@@ -86,16 +86,15 @@ export default {
         images: {
           backdrops: {},
         },
-        favorites: [], // Nueva lista de películas favoritas
+        favorites: [],
       },
     };
   },
 
   mounted() {
-    this.fetchMovie(this.$route.params.id); // Se obtiene la película en base al id
+    this.fetchMovie(this.$route.params.id);
   },
 
-  // Se ejecuta cuando cambia el valor de $route.params.id
   watch: {
     "$route.params.id": {
       handler() {
@@ -125,8 +124,8 @@ export default {
       }
     },
     playTrailer() {
-      const url = this.youtubeVideo(); // Se obtiene el video de youtube
-      window.open(url, "_blank"); // Se abre en una nueva pestaña
+      const url = this.youtubeVideo();
+      window.open(url, "_blank");
     },
     youtubeVideo() {
       if (!this.movie.videos) return; // Si no hay videos, no se muestra nada

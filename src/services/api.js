@@ -4,6 +4,6 @@ const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmFmYWFmOTQ2ZmI2ZjU1ZmY3OTRhZWVh
 export default axios.create({
     baseURL: "https://api.themoviedb.org/3",
     headers: {
-        Authorization: `Bearer ${token}`, // Token de autenticación para la API
+        Authorization: `Bearer ${token}`,
     },
 });

@@ -43,7 +43,6 @@
   </v-card>
 </template>
 
-<!-- COMPOSITON API -->
 <script setup>
 import { computed, defineProps, ref, defineEmits } from "vue";
 import { useStore } from "vuex";
@@ -59,7 +58,6 @@ const props = defineProps({
   },
 });
 
-// Path de la imagen de la pelicula.
 const posterPath = computed(() => {
   if (!props.movie.poster_path) {
     return "https://via.placeholder.com/500x750?text=Image+Not+Found";
@@ -73,14 +71,9 @@ const onImageError = () => {
   showError.value = true;
 };
 
-// Función para obtener el nombre del genero.
 const genretypeName = (geraId, index) => {
-  // geraId: id del genero de la pelicula.
-  // index: indice del genero de la pelicula.
   for (const item of props.genres) {
-    // Si el id del genero es igual al id del genero de la pelicula.
     if (item.id == geraId) {
-      // Si es el ultimo genero de la lista, no se agrega la coma.
       if (index == props.movie.genre_ids.length - 1) {
         return item.name;
       } else {

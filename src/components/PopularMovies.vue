@@ -39,7 +39,6 @@
     </v-container>
   </div>
 
-  <!-- Sección de películas favoritas -->
   <div class="mx-10 mt-8 container-favs">
     <h2>Favorite Movies</h2>
     <v-container fluid v-if="moviesFavs.length">
@@ -53,7 +52,6 @@
   </div>
 </template>
 
-<!-- COMPOSITON API -->
 <script setup>
 import api from "@/services/api.js";
 import MovieCard from "./MovieCard.vue";
@@ -65,9 +63,8 @@ import { useStore } from "vuex";
 const movies = ref([]);
 const genres = ref([]);
 const dialog = ref(false);
-const selectedCategory = ref("popularity.desc"); // Valor por defecto de la categoría
+const selectedCategory = ref("popularity.desc");
 
-// Función para obtener los géneros
 const fetchGenres = async () => {
   try {
     const response = await api.get("/genre/movie/list");
@@ -77,12 +74,10 @@ const fetchGenres = async () => {
   }
 };
 
-// Función para obtener las películas
 const fetchMovies = async () => {
   try {
     const response = await api.get("/discover/movie", {
       params: {
-        // Seleccionamos la categoría
         sort_by: selectedCategory.value,
       },
     });
@@ -98,7 +93,6 @@ onMounted(async () => {
   await fetchMovies();
 });
 
-// Se ejecuta cuando cambia el valor de selectedCategory
 watch(selectedCategory, async () => {
   await fetchMovies();
 });

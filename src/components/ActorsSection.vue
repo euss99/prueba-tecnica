@@ -63,19 +63,12 @@ export default {
         console.log(error);
       }
     },
-    // Funcion para detectar el scroll y cargar mas actores
     scroll() {
-      // Detectamos el scroll
       window.onscroll = () => {
         let bottomOfWindow =
           document.documentElement.scrollTop + window.innerHeight ===
-          document.documentElement.offsetHeight; // Verificamos si el scroll llego al final de la pagina
+          document.documentElement.offsetHeight;
 
-        // scrollTop: Devuelve la posicion del scroll en el eje Y
-        // innerHeight: Devuelve la altura de la ventana
-        // offsetHeight: Devuelve la altura de la pagina
-
-        // Si el scroll llego al final de la pagina
         if (bottomOfWindow) {
           currentPage++;
           this.fetchActors(currentPage);

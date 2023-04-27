@@ -34,7 +34,6 @@
   </v-card>
 </template>
 
-<!-- COMPOSITON API -->
 <script setup>
 import { computed, defineProps, ref } from "vue";
 import { useStore } from "vuex";
@@ -50,7 +49,6 @@ const props = defineProps({
   },
 });
 
-// Path de la imagen de la pelicula.
 const posterPath = computed(() => {
   if (!props.movie.poster_path) {
     return "https://via.placeholder.com/500x750?text=Image+Not+Found";

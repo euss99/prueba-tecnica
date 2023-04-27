@@ -14,7 +14,6 @@
   </div>
 </template>
 
-<!-- OPTIONS API -->
 <script>
 export default {
   props: {

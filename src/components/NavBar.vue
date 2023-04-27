@@ -18,7 +18,6 @@
   </nav>
 </template>
 
-<!-- COMPOSITON API -->
 <script></script>
 
 <style></style>
