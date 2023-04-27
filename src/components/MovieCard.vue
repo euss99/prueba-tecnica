@@ -29,16 +29,19 @@
         </span>
       </div>
     </v-card-text>
-    <v-btn tile color="blue" class="favorite ml-2" @click="addToFavorites">
+    <v-btn tile color="blue" class="favorite ml-2" @click="addToFavorites(movie)">
       <v-icon left>mdi-heart</v-icon> Add to Favorites
     </v-btn>
-
   </v-card>
 </template>
 
 <!-- COMPOSITON API -->
 <script setup>
 import { computed, defineProps, ref } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+
 
 const props = defineProps({
   movie: {
@@ -80,12 +83,8 @@ const genretypeName = (geraId, index) => {
   }
 };
 
-const addToFavorites = () => {
-  // Agregar las péliculas favoritas en el localStorage.
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  favorites.push({ id: props.movie.id, title: props.movie.title, poster_path: props.movie.poster_path});
-  localStorage.setItem("favorites", JSON.stringify(favorites));
-  return favorites;
+const addToFavorites = (movie) => {
+  store.commit("movies/addMoviesFavorite", movie);
 };
 </script>
 

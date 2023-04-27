@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import profile from "./modules/profile";
+import movies from "./modules/movies";
 
 export default createStore({
   state: {},
@@ -8,5 +9,6 @@ export default createStore({
   actions: {},
   modules: {
     profile,
+    movies,
   },
 });

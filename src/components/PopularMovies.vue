@@ -24,13 +24,16 @@
       </v-row>
     </v-container>
   </div>
+
+  {{ moviesFavs.title }}
 </template>
 
 <!-- COMPOSITON API -->
 <script setup>
 import api from "@/services/api.js";
 import MovieCard from "./MovieCard.vue";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
+import { useStore } from "vuex";
 
 const movies = ref([]);
 const genres = ref([]);
@@ -71,6 +74,10 @@ onMounted(async () => {
 watch(selectedCategory, async () => {
   await fetchMovies();
 });
+
+const store = useStore();
+
+const moviesFavs = computed(() => store.getters["movies/movies"]);
 </script>
 
 <style scoped>
