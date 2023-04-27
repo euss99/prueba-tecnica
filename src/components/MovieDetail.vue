@@ -4,7 +4,7 @@
       <v-row class="d-flex justify-sm-space-between">
         <v-col cols="12" sm="3">
           <div class="d-flex justify-end">
-            <img class="posterImg" :src="posterPath" :alt="movie.title">
+            <img class="posterImg" :src="posterPath" :alt="movie.title" />
           </div>
         </v-col>
 
@@ -61,10 +61,6 @@
           <v-btn tile color="blue" @click="playTrailer">
             <v-icon>mdi-play</v-icon> Play Trailer
           </v-btn>
-
-          <v-btn tile color="blue" class="ml-2">
-            <v-icon left>mdi-heart</v-icon> Add to Favorites
-          </v-btn>
         </v-col>
       </v-row>
       <v-divider class="mt-5"></v-divider>
@@ -90,6 +86,7 @@ export default {
         images: {
           backdrops: {},
         },
+        favorites: [], // Nueva lista de películas favoritas
       },
     };
   },

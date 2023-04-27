@@ -2,7 +2,7 @@
   <nav>
     <v-app-bar app color="blue" dark>
       <v-toolbar-title class="ml-16">Movie DB</v-toolbar-title>
-      <router-link to="/" class="ml-2">
+      <router-link to="/home" class="ml-2">
         <v-btn text class="text-white">Home</v-btn>
       </router-link>
       <router-link to="/actors" class="ml-2">
@@ -22,29 +22,15 @@
         color="white"
         label="search"
         prepend-inner-icon="search"
+        class="mr-8"
         flat
       >
       </v-autocomplete>
-
-      <p class="ml-4 mr-4">{{ username }}</p>
-      <v-avatar class="mr-16" size="40">
-        <v-img
-          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-        ></v-img>
-      </v-avatar>
     </v-app-bar>
   </nav>
 </template>
 
 <!-- COMPOSITON API -->
-<script>
-import { mapState } from "vuex";
-
-export default {
-  computed: {
-    ...mapState("profile", ["username"]),
-  },
-};
-</script>
+<script></script>
 
 <style></style>

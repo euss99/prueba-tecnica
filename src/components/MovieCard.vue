@@ -29,7 +29,10 @@
         </span>
       </div>
     </v-card-text>
-    <v-card-text> </v-card-text>
+    <v-btn tile color="blue" class="favorite ml-2" @click="addToFavorites">
+      <v-icon left>mdi-heart</v-icon> Add to Favorites
+    </v-btn>
+
   </v-card>
 </template>
 
@@ -76,9 +79,20 @@ const genretypeName = (geraId, index) => {
     }
   }
 };
+
+const addToFavorites = () => {
+  // Agregar las péliculas favoritas en el localStorage.
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  favorites.push({ id: props.movie.id, title: props.movie.title, poster_path: props.movie.poster_path});
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  return favorites;
+};
 </script>
 
 <style>
+.v-card-text {
+  padding: 5px 10px;
+}
 .title-text {
   width: 85%;
 }
@@ -87,5 +101,12 @@ const genretypeName = (geraId, index) => {
   width: 100%;
   height: 100%;
   background-color: #e1e1e1;
+}
+
+.favorite {
+  width: 100%;
+  margin-top: 10px;
+  color: #fff;
+  padding: 0;
 }
 </style>
