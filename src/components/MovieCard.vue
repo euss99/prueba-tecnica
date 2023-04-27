@@ -29,19 +29,26 @@
         </span>
       </div>
     </v-card-text>
-    <v-btn tile color="blue" class="favorite ml-2" @click="addToFavorites(movie)">
+    <v-btn tile color="blue" class="favorite" @click="addToFavorites(movie)">
       <v-icon left>mdi-heart</v-icon> Add to Favorites
+    </v-btn>
+    <v-btn
+      tile
+      color="red"
+      class="favorite remove"
+      @click="deleteMovie(movie.id)"
+    >
+      <v-icon left>mdi-close</v-icon> Remove Movie
     </v-btn>
   </v-card>
 </template>
 
 <!-- COMPOSITON API -->
 <script setup>
-import { computed, defineProps, ref } from "vue";
+import { computed, defineProps, ref, defineEmits } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-
 
 const props = defineProps({
   movie: {
@@ -86,6 +93,12 @@ const genretypeName = (geraId, index) => {
 const addToFavorites = (movie) => {
   store.commit("movies/addMoviesFavorite", movie);
 };
+
+const emits = defineEmits(["delete-movie"]);
+
+function deleteMovie(id) {
+  emits("delete-movie", id);
+}
 </script>
 
 <style>
@@ -107,5 +120,6 @@ const addToFavorites = (movie) => {
   margin-top: 10px;
   color: #fff;
   padding: 0;
+  margin: 0 !important;
 }
 </style>

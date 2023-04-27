@@ -26,7 +26,7 @@
     <v-btn
       tile
       color="red"
-      class="favorite ml-2"
+      class="favorite"
       @click="removeToFavorite(movie)"
     >
       <v-icon left>mdi-heart</v-icon> Remove to Favorites

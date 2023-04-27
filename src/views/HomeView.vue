@@ -10,6 +10,6 @@ import PopularMovies from "@/components/PopularMovies.vue";
 
 <style scoped>
 .home {
-  margin-bottom: 280px;
+  margin-bottom: 180px;
 }
 </style>

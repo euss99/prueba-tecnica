@@ -14,18 +14,6 @@
       <router-link to="/contact" class="ml-2 mr-16">
         <v-btn text class="text-white">Contact</v-btn>
       </router-link>
-
-      <v-autocomplete
-        clearable
-        hide-no-data
-        hide-selected
-        color="white"
-        label="search"
-        prepend-inner-icon="search"
-        class="mr-8"
-        flat
-      >
-      </v-autocomplete>
     </v-app-bar>
   </nav>
 </template>

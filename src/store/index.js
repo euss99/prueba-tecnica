@@ -1,5 +1,4 @@
 import { createStore } from "vuex";
-import profile from "./modules/profile";
 import movies from "./modules/movies";
 
 export default createStore({
@@ -8,7 +7,6 @@ export default createStore({
   mutations: {},
   actions: {},
   modules: {
-    profile,
     movies,
   },
 });

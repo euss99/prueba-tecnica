@@ -7,7 +7,6 @@ const movies = {
   },
   getters: {
     movies: (state) => state.movies,
-    title: (state) => state.movies.title,
   },
   mutations: {
     addMoviesFavorite(state, movie) {
